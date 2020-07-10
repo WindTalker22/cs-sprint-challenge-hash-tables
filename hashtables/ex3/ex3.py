@@ -3,6 +3,16 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    count = {}
+
+    for arr in arrays:
+        for num in arr:
+            if num not in count:
+                count[num] = 0
+
+            count[num] += 1
+
+    result = [num for num, freq in count.items() if freq == len(arrays)]
 
     return result
 
