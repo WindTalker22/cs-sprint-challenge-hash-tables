@@ -10,5 +10,20 @@ def reconstruct_trip(tickets, length):
     YOUR CODE HERE
     """
     # Your code here
+    route = [None] * length  # Create big enough list
+    flights = {}
+
+    for ticket in tickets:
+        if ticket.source == 'NONE':
+            first_flight = ticket
+
+        flights[ticket.source] = ticket.destination
+
+    route[0] = first_flight.destination
+
+    for i in range(1, length):
+        source = route[i - 1]
+
+        route[i] = flights[source]
 
     return route
